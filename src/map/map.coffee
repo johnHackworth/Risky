@@ -1,2 +1,2 @@
-class @Map extends Model
+class @Map extends @Model
 	id: null

@@ -3,13 +3,14 @@
   	"vendors/jasmine/lib/jasmine-1.2.0/jasmine-html.js",
 	"../../bin/js/riskyBase",
   	"../../bin/js/model",
+	"../../bin/js/tile",
   	"../../bin/js/map",
   	
   	],
   	function() {
-  		debugger;
   		require([
-			"spec.map"
+			"spec.map",
+			"spec.tile"
 	  		],
 
 		    function() {

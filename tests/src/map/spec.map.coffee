@@ -1,5 +1,5 @@
 describe 'Map class', ->
-	beforeEach: ->
+	beforeEach ->
 		this.map = new Map()
 
 	it 'should be able to create a map', ->

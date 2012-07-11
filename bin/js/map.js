@@ -14,6 +14,6 @@
 
     return Map;
 
-  })(Model);
+  })(this.Model);
 
 }).call(this);
