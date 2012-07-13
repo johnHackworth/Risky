@@ -1,2 +1,0 @@
-class @RiskyBase
-	id: null

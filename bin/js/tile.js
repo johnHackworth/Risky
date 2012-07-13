@@ -6,15 +6,11 @@
 
     __extends(Tile, _super);
 
-    Tile.prototype.id = null;
-
-    Tile.prototype.position = null;
-
-    Tile.prototype.type = 0;
-
     function Tile(attr) {
       var _base, _base2;
       this.attr = attr;
+      this.id = null;
+      this.type = 0;
       this.position = {
         x: 0,
         y: 0
@@ -23,6 +19,7 @@
         if ((_base = this.position).x == null) _base.x = attr.position.x;
         if ((_base2 = this.position).y == null) _base2.y = attr.position.y;
       }
+      Tile.__super__.constructor.apply(this, arguments);
     }
 
     return Tile;
