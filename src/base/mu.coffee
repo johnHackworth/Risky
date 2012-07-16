@@ -19,7 +19,6 @@ class Mu
 
     equal: (objA, objB) ->
         areEqual = true
-        debugger;
         if objA instanceof Array
             if objA.length != objB.length
                 areEqual = false
