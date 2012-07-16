@@ -67,4 +67,42 @@ describe 'Model class', ->
         this.model.set {'irrel': 2}
 
         expect(globalChange).equal true
-        expect(attrChange).equal true      
+        expect(attrChange).equal true
+
+    it 'should be able to export to json', ->
+        this.model = new Model {'irrel': 1}
+
+        expect(JSON.stringify(this.model.asJson())).equal '{"irrel":1}'
+
+    it 'should generate subModels as json too', ->
+        this.model = new Model {'irrel': 1}
+        this.model.sub = new Model {'irrel': 2}
+
+        resultJson = this.model.asJson()
+
+        this.model.sub.set({"irrel": 3})
+
+        expect(JSON.stringify(resultJson)).equal(
+            '{"irrel":1,"sub":{"irrel":2}}'
+        )
+
+    it 'should be able to export a json a complex model', ->
+        this.model = new Model
+        this.model.irrel = 1
+        this.model.array = [1,2]
+        this.model.complexArray = [
+            new Model {"irrel":2, "irrel2": [1,2]}
+        ]
+        this.model.model = new Model {"irrel3": 3}
+
+        resultJson = this.model.asJson()
+
+        this.model.complexArray[0].irrel = 3
+
+        expect(JSON.stringify(resultJson)).equal(
+            '{"irrel":1,"array":[1,2],"complexArray":[{"irrel":2,"irrel2":[1,2],"__isModel":true,"id":null}],"model":{"irrel3":3}}'
+        )
+
+
+
+

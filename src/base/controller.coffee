@@ -1,25 +1,28 @@
 if exports? then {@BaseObject} = require("../../src/base/baseObject.coffee")
 
 class Controller extends @BaseObject
-	element: null
-	template: null
-	model: null
+    element: null
+    template: null
+    model: null
 
-	# constructor: (@params) ->
-	# 	if params and params.element
-	# 		this.element = params.element
-	# 	if params and params.template
-	# 		this.template = params.template
+    constructor: (params) ->
+        if params and params.element
+            this.element = params.element
+        if params and params.template
+            this.template = params.template
+        if params and params.model
+            this.model = params.model
 
-	# render: (@context)->
-	# 	if not context:
-	# 		context = this.getContext
 
-	# 	if this.template and this.element
-	# 		$(this.element).html this.template context
+    # render: (context)->
+    #   if not context:
+    #       context = this.getContext
 
-	# getContext: ->
-	# 	this.model.asJson
+    #   if this.template and this.element
+    #       $(this.element).html this.template context
+
+    getContext: ->
+      this.model?.asJson()
 
 root = exports ? window
 root.Controller = Controller

@@ -3,6 +3,7 @@ require([
 ], ->
 	require [
 		"baseObject",
+        "mu",
 		"model",
 		"tile",
 		"map"
