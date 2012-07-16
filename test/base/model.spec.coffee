@@ -1,10 +1,18 @@
+expect = require('chai').expect
+
+{Model} = require("../../src/base/model.coffee")
+
+
 describe 'Model class', ->
     beforeEach ->
         this.model = new Model
 
     it 'should be able to create a model', ->
-        expect(this.model).toBeTruthy
-        expect(this.model instanceof Model).toBeTruthy 
+        expect(this.model).exist
+        expect(this.model instanceof Model).equal(true)
+
+    it 'should extend from baseObject', ->
+    	expect(this.model.trigger).exist
 
     it 'should be able to initializa a model', ->
         this.model = new Model {
@@ -18,12 +26,12 @@ describe 'Model class', ->
             }
         }
 
-        expect(this.model.irrelevant).toEqual 1
-        expect(this.model.irrelevant2).toEqual "cachopo"
-        expect(this.model.irrelevant3 instanceof Array).toBeTruthy
-        expect(this.model.irrelevant4 instanceof Array).toBeTruthy
-        expect(this.model.irrelevant4.length).toEqual 3
-        expect(this.model.irrelevant5.sub1).toEqual 1
+        expect(this.model.irrelevant).equal 1
+        expect(this.model.irrelevant2).equal "cachopo"
+        expect(this.model.irrelevant3 instanceof Array).equal true
+        expect(this.model.irrelevant4 instanceof Array).equal true
+        expect(this.model.irrelevant4.length).equal 3
+        expect(this.model.irrelevant5.sub1).equal 1
 
 
     it 'should be able to initialice several instances of the same class' +
@@ -43,8 +51,8 @@ describe 'Model class', ->
 
         this.model.set {'irrelevant':2}
 
-        expect(this.model.irrelevant2).toBeFalsy
-        expect(this.model.irrelevant).toEqual 2
+        expect(this.model.irrelevant2).not.exist
+        expect(this.model.irrelevant).equal 2
 
     it 'should trigger the change events', ->
 
@@ -58,5 +66,5 @@ describe 'Model class', ->
 
         this.model.set {'irrel': 2}
 
-        expect(globalChange).toBeTruthy
-        expect(attrChange).toBeTruthy
+        expect(globalChange).equal true
+        expect(attrChange).equal true      

@@ -1,8 +1,13 @@
 (function() {
-  var __hasProp = Object.prototype.hasOwnProperty,
+  var Tile, root,
+    __hasProp = Object.prototype.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
-  this.Tile = (function(_super) {
+  if (typeof exports !== "undefined" && exports !== null) {
+    this.Model = require("../../src/base/model.coffee").Model;
+  }
+
+  Tile = (function(_super) {
 
     __extends(Tile, _super);
 
@@ -25,5 +30,9 @@
     return Tile;
 
   })(this.Model);
+
+  root = typeof exports !== "undefined" && exports !== null ? exports : window;
+
+  root.Tile = Tile;
 
 }).call(this);

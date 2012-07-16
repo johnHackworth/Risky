@@ -1,0 +1,4 @@
+--reporter dot
+--ui bdd
+--timeout 200
+--compilers coffee:coffee-script

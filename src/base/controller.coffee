@@ -1,4 +1,6 @@
-class @Controller extends @BaseObject
+if exports? then {@BaseObject} = require("../../src/base/baseObject.coffee")
+
+class Controller extends @BaseObject
 	element: null
 	template: null
 	model: null
@@ -19,3 +21,5 @@ class @Controller extends @BaseObject
 	# getContext: ->
 	# 	this.model.asJson
 
+root = exports ? window
+root.Controller = Controller

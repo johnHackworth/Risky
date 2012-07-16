@@ -1,4 +1,6 @@
-class @Tile extends @Model
+if exports? then {@Model} = require("../../src/base/model.coffee")
+
+class Tile extends @Model
 
 	constructor: (@attr) ->
 		this.id = null
@@ -13,3 +15,6 @@ class @Tile extends @Model
 
 		super
 
+
+root = exports ? window
+root.Tile = Tile
